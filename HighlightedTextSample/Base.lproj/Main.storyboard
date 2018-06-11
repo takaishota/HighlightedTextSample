@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DgY-eJ-f2x" customClass="CustomMenuTextView" customModule="HighlightedTextSample" customModuleProvider="target">
-                                <rect key="frame" x="16" y="36" width="343" height="607"/>
+                                <rect key="frame" x="16" y="36" width="343" height="561"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -57,13 +57,22 @@
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhv-PW-Y7X">
+                                <rect key="frame" x="313" y="613" width="46" height="30"/>
+                                <state key="normal" title="クリア"/>
+                                <connections>
+                                    <action selector="clickClearButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q0A-HS-zYg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="DgY-eJ-f2x" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="IMT-9f-PNN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DgY-eJ-f2x" secondAttribute="trailing" constant="16" id="JLz-NS-W8u"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DgY-eJ-f2x" secondAttribute="bottom" constant="24" id="TD5-t7-c1R"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qhv-PW-Y7X" secondAttribute="trailing" constant="16" id="ZX2-m1-Ti8"/>
+                            <constraint firstItem="qhv-PW-Y7X" firstAttribute="top" secondItem="DgY-eJ-f2x" secondAttribute="bottom" constant="16" id="cW2-1c-OgT"/>
                             <constraint firstItem="DgY-eJ-f2x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="g6g-mi-PFr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qhv-PW-Y7X" secondAttribute="bottom" constant="24" id="zHh-m1-wLu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

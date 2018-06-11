@@ -23,6 +23,20 @@ class ViewController: UIViewController {
         textView.tintColor = UIColor.red
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setAllHighlight()
+    }
+
+    private func setAllHighlight() {
+        guard let results = RealmService.shared.getAll(Highlight.self), let highlights = Array(results) as? [Highlight] else {
+            return
+        }
+        highlights.forEach { highlight in
+            self.setHightlight(self.textView.attributedText, range: NSRange(location: highlight.location, length: highlight.length))
+        }
+    }
+
     private func setHightlight(_ text: NSAttributedString, range: NSRange) {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.5
@@ -34,6 +48,24 @@ class ViewController: UIViewController {
             textView.attributedText = attributedString
             textView.selectedRange = NSRange()
         }
+    }
+
+    private func clearHighlight() {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.5
+        let attributedString = NSMutableAttributedString(attributedString: textView.attributedText)
+        attributedString.addAttribute(NSAttributedStringKey.backgroundColor, value: UIColor.clear, range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
+        textView.attributedText = attributedString
+        textView.selectedRange = NSRange()
+    }
+
+    @IBAction func clickClearButton(_ sender: UIButton) {
+        if RealmService.shared.deleteAll() {
+        } else {
+            print("ハイライトの削除に失敗しました")
+        }
+        clearHighlight()
     }
 }
 
@@ -55,6 +87,10 @@ extension ViewController: CustomMenuTextViewDelegate {
     func didSelectHighlightMenu() {
         guard let text = textView.attributedText, let range = selectedRange else {
             return
+        }
+        if RealmService.shared.store(Highlight(selectedText, location: range.location, length: range.length)) {
+        } else {
+            print("ハイライトの保存に失敗しました")
         }
         setHightlight(text, range: range)
     }
