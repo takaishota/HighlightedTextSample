@@ -60,10 +60,7 @@ extension ViewController: CustomMenuTextViewDelegate {
     }
 
     func didSelectShareMenu() {
-        guard let attributed = textView.attributedText else {
-            return
-        }
-        let activityViewController = UIActivityViewController(activityItems: [attributed], applicationActivities: nil)
+        let activityViewController = UIActivityViewController(activityItems: [selectedText], applicationActivities: nil)
         activityViewController.completionWithItemsHandler = {(activityType, completed, returnedItems, error) in
             if completed {
 
@@ -73,9 +70,6 @@ extension ViewController: CustomMenuTextViewDelegate {
     }
 
     func didSelectCopyMenu() {
-        guard let text = textView.attributedText else {
-            return
-        }
-        UIPasteboard.general.set(attributedString: text)
+        UIPasteboard.general.string = selectedText
     }
 }
