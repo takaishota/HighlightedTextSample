@@ -13,7 +13,6 @@
 		682AC3B620C8CB8900ADA3AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 682AC3B520C8CB8900ADA3AD /* Assets.xcassets */; };
 		682AC3B920C8CB8900ADA3AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 682AC3B720C8CB8900ADA3AD /* LaunchScreen.storyboard */; };
 		6849DACE20CE555100F34953 /* CustomMenuTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6849DACD20CE555100F34953 /* CustomMenuTextView.swift */; };
-		6849DAD020CE600E00F34953 /* UIPasteboard+attributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6849DACF20CE600E00F34953 /* UIPasteboard+attributedString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +24,6 @@
 		682AC3B820C8CB8900ADA3AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		682AC3BA20C8CB8900ADA3AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6849DACD20CE555100F34953 /* CustomMenuTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMenuTextView.swift; sourceTree = "<group>"; };
-		6849DACF20CE600E00F34953 /* UIPasteboard+attributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPasteboard+attributedString.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +58,6 @@
 			children = (
 				682AC3AE20C8CB8500ADA3AD /* AppDelegate.swift */,
 				682AC3B020C8CB8500ADA3AD /* ViewController.swift */,
-				6849DACF20CE600E00F34953 /* UIPasteboard+attributedString.swift */,
 				6849DACD20CE555100F34953 /* CustomMenuTextView.swift */,
 				682AC3B220C8CB8500ADA3AD /* Main.storyboard */,
 				682AC3B520C8CB8900ADA3AD /* Assets.xcassets */,
@@ -144,7 +141,6 @@
 				682AC3B120C8CB8500ADA3AD /* ViewController.swift in Sources */,
 				682AC3AF20C8CB8500ADA3AD /* AppDelegate.swift in Sources */,
 				6849DACE20CE555100F34953 /* CustomMenuTextView.swift in Sources */,
-				6849DAD020CE600E00F34953 /* UIPasteboard+attributedString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
