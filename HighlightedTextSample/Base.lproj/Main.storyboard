@@ -18,15 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DgY-eJ-f2x">
-                                <rect key="frame" x="16" y="36" width="343" height="545"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DgY-eJ-f2x" customClass="CustomMenuTextView" customModule="HighlightedTextSample" customModuleProvider="target">
+                                <rect key="frame" x="16" y="36" width="343" height="607"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="1rk-gH-hqw"/>
-                                </constraints>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <mutableString key="content">手や腕、肩、首などのだるさや痛み、しびれなどがしつこく残る病気です。同じ作業を繰り返すような業務に従事している労働者がかかりやすいとされています。具体的には、タイピングを多く行う人、工場で作業する人、調理をする人など多くの人が当てはまります。症状はどのような仕事をしているかによって異なりますが、手指、手関節、腕、肘、肩などのしつこいだるさ、痛み、しびれなどが見られます。診断するために特別な検査があるわけではなく、生活環境の問診から頚肩腕症候群は診断されます。他の病気との区別のために必要であれば、画像検査（レントゲン、</mutableString>
+                                        <string key="content">手や腕、肩、首などのだるさや痛み、しびれなどがしつこく残る病気です。同じ作業を繰り返すような業務に従事している労働者がかかりやすいとされています。具体的には、タイピングを多く行う人、工場で作業する人、調理をする人など多くの人が当てはまります。症状はどのような仕事をしているかによって異なりますが、手指、手関節、腕、肘、肩などのしつこいだるさ、痛み、しびれなどが見られます。診断するために特別な検査があるわけではなく、生活環境の問診から頚肩腕症候群は診断されます。他の病気との区別のために必要であれば、画像検査（レントゲン、</string>
                                         <attributes>
                                             <font key="NSFont" size="14" name=".HiraKakuInterface-W3"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0"/>
@@ -60,21 +57,12 @@
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpd-os-kml">
-                                <rect key="frame" x="282" y="589" width="77" height="30"/>
-                                <state key="normal" title="ハイライト"/>
-                                <connections>
-                                    <action selector="clickHighlightButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Scd-Um-UyU"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="kpd-os-kml" firstAttribute="top" secondItem="DgY-eJ-f2x" secondAttribute="bottom" constant="8" id="4Mg-9A-U1B"/>
                             <constraint firstItem="DgY-eJ-f2x" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="IMT-9f-PNN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DgY-eJ-f2x" secondAttribute="trailing" constant="16" id="JLz-NS-W8u"/>
-                            <constraint firstItem="kpd-os-kml" firstAttribute="trailing" secondItem="DgY-eJ-f2x" secondAttribute="trailing" id="VzN-Uj-74T"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kpd-os-kml" secondAttribute="bottom" constant="48" id="WEx-6B-WCc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DgY-eJ-f2x" secondAttribute="bottom" constant="24" id="TD5-t7-c1R"/>
                             <constraint firstItem="DgY-eJ-f2x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="g6g-mi-PFr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

@@ -9,8 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-//    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var textView: CustomMenuTextView!
     var selectedText: String = ""
     var selectedRange: NSRange?
 
@@ -18,17 +17,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         textView.delegate = self
+        textView.customMenuDelegate = self
         textView.isSelectable = true
         textView.isEditable = false
         textView.tintColor = UIColor.red
-        
-    }
-
-    @IBAction func clickHighlightButton(_ sender: UIButton) {
-        guard let text = textView.attributedText, let range = selectedRange else {
-            return
-        }
-        setHightlight(text, range: range)
     }
 
     private func setHightlight(_ text: NSAttributedString, range: NSRange) {
@@ -56,5 +48,34 @@ extension ViewController: UITextViewDelegate {
         selectedRange = range
         print(selected)
         print(range)
+    }
+}
+
+extension ViewController: CustomMenuTextViewDelegate {
+    func didSelectHighlightMenu() {
+        guard let text = textView.attributedText, let range = selectedRange else {
+            return
+        }
+        setHightlight(text, range: range)
+    }
+
+    func didSelectShareMenu() {
+        guard let attributed = textView.attributedText else {
+            return
+        }
+        let activityViewController = UIActivityViewController(activityItems: [attributed], applicationActivities: nil)
+        activityViewController.completionWithItemsHandler = {(activityType, completed, returnedItems, error) in
+            if completed {
+
+            }
+        }
+        present(activityViewController, animated: true, completion: nil)
+    }
+
+    func didSelectCopyMenu() {
+        guard let text = textView.attributedText else {
+            return
+        }
+        UIPasteboard.general.set(attributedString: text)
     }
 }
