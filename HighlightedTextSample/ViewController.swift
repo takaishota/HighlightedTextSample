@@ -33,31 +33,8 @@ class ViewController: UIViewController {
             return
         }
         highlights.forEach { highlight in
-            self.setHightlight(self.textView.attributedText, range: NSRange(location: highlight.location, length: highlight.length))
+            textView.setHightlight(self.textView.attributedText, range: NSRange(location: highlight.location, length: highlight.length))
         }
-    }
-
-    private func setHightlight(_ text: NSAttributedString, range: NSRange) {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineHeightMultiple = 1.5
-
-        if range.length > 0 {
-            let attributedString = NSMutableAttributedString(attributedString: text)
-            attributedString.addAttribute(NSAttributedStringKey.backgroundColor, value: UIColor.yellow, range: range)
-            attributedString.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
-            textView.attributedText = attributedString
-            textView.selectedRange = NSRange()
-        }
-    }
-
-    private func clearHighlight() {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineHeightMultiple = 1.5
-        let attributedString = NSMutableAttributedString(attributedString: textView.attributedText)
-        attributedString.addAttribute(NSAttributedStringKey.backgroundColor, value: UIColor.clear, range: NSRange(location: 0, length: attributedString.length))
-        attributedString.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
-        textView.attributedText = attributedString
-        textView.selectedRange = NSRange()
     }
 
     @IBAction func clickClearButton(_ sender: UIButton) {
@@ -65,7 +42,7 @@ class ViewController: UIViewController {
         } else {
             print("ハイライトの削除に失敗しました")
         }
-        clearHighlight()
+        textView.clearHighlight()
     }
 }
 
@@ -92,7 +69,7 @@ extension ViewController: CustomMenuTextViewDelegate {
         } else {
             print("ハイライトの保存に失敗しました")
         }
-        setHightlight(text, range: range)
+        textView.setHightlight(text, range: range)
     }
 
     func didSelectShareMenu() {

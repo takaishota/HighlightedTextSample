@@ -18,6 +18,8 @@ class CustomMenuTextView: UITextView {
     override var canBecomeFirstResponder: Bool { return true }
     weak var customMenuDelegate: CustomMenuTextViewDelegate?
 
+    let lineHeight: CGFloat = 1.5
+
     init(frame:CGRect) {
         super.init(frame: frame, textContainer: nil)
         commonInit()
@@ -30,13 +32,6 @@ class CustomMenuTextView: UITextView {
 
     private func commonInit() {
         setupMenuController()
-    }
-
-    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-        if action == #selector(highlight) || action == #selector(share) || action == #selector(copyText) {
-            return true
-        }
-        return false
     }
 
     private func setupMenuController() {
@@ -59,5 +54,36 @@ class CustomMenuTextView: UITextView {
 
     @objc private func copyText() {
         customMenuDelegate?.didSelectCopyMenu()
+    }
+
+    func setHightlight(_ text: NSAttributedString, range: NSRange) {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = lineHeight
+
+        if range.length > 0 {
+            let attributedString = NSMutableAttributedString(attributedString: text)
+            attributedString.addAttribute(NSAttributedStringKey.backgroundColor, value: UIColor.yellow, range: range)
+            attributedString.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
+            attributedText = attributedString
+            selectedRange = NSRange()
+        }
+    }
+
+    func clearHighlight() {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = lineHeight
+
+        let attributedString = NSMutableAttributedString(attributedString: attributedText)
+        attributedString.addAttribute(NSAttributedStringKey.backgroundColor, value: UIColor.clear, range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
+        attributedText = attributedString
+        selectedRange = NSRange()
+    }
+
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        if action == #selector(highlight) || action == #selector(share) || action == #selector(copyText) {
+            return true
+        }
+        return false
     }
 }
