@@ -56,7 +56,7 @@ class CustomMenuTextView: UITextView {
         customMenuDelegate?.didSelectCopyMenu()
     }
 
-    func setHightlight(_ text: NSAttributedString, range: NSRange) {
+    func setHighlight(_ text: NSAttributedString, range: NSRange) {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = lineHeight
 

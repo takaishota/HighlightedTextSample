@@ -33,7 +33,7 @@ class ViewController: UIViewController {
             return
         }
         highlights.forEach { highlight in
-            textView.setHightlight(self.textView.attributedText, range: NSRange(location: highlight.location, length: highlight.length))
+            textView.setHighlight(self.textView.attributedText, range: NSRange(location: highlight.location, length: highlight.length))
         }
     }
 
@@ -69,7 +69,7 @@ extension ViewController: CustomMenuTextViewDelegate {
         } else {
             print("ハイライトの保存に失敗しました")
         }
-        textView.setHightlight(text, range: range)
+        textView.setHighlight(text, range: range)
     }
 
     func didSelectShareMenu() {
